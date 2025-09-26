@@ -2,6 +2,8 @@
 
 A Terminal User Interface (TUI) for managing Tailscale deployments on Omarchy-based hosts. This application provides a keyboard-first interface for inspecting network state and managing exit nodes.
 
+![Tailscale TUI Screenshot](screenshot.png)
+
 ## Prerequisites
 
 - **Tailscale CLI**: The `tailscale` command must be pre-installed and authenticated on the host
