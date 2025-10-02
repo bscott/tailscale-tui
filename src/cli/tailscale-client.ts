@@ -32,13 +32,13 @@ export class TailscaleClient {
       
       // Process self if it can be an exit node
       if (status.Self.ExitNodeOption) {
-        exitNodes.push(this.deviceToExitNode(status.Self, status, true));
+        exitNodes.push(this.deviceToExitNode(status.Self, status));
       }
 
       // Process peers that can be exit nodes
       Object.values(status.Peer || {}).forEach(peer => {
         if (peer.ExitNodeOption) {
-          exitNodes.push(this.deviceToExitNode(peer, status, false));
+          exitNodes.push(this.deviceToExitNode(peer, status));
         }
       });
 
@@ -75,7 +75,7 @@ export class TailscaleClient {
     return this.executeCommand(['ping', '--c', '1', target]);
   }
 
-  private deviceToExitNode(device: any, status: TailscaleStatus, isSelf: boolean): ExitNodeInfo {
+  private deviceToExitNode(device: any, status: TailscaleStatus): ExitNodeInfo {
     const user = status.User?.[device.UserID] || null;
     return {
       id: device.ID,

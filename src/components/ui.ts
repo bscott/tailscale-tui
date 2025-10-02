@@ -1,5 +1,5 @@
 import blessed from 'blessed';
-import { TUIState, ExitNodeInfo } from '../models/tailscale';
+import { TUIState } from '../models/tailscale';
 
 export class TailscaleTUI {
   private screen: blessed.Widgets.Screen;
